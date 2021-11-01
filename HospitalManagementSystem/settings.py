@@ -35,6 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django_countries',
+    'phonenumber_field',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -45,12 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'django_countries',
-    'phonenumber_field',
 
 ]
+# custom user model
+AUTH_USER_MODEL = "account.User"
+
+# phone number default region to Ghana
+PHONENUMBER_DEFAULT_REGION = "GH"
 
 ROOT_URLCONF = 'HospitalManagementSystem.urls'
 
@@ -131,7 +137,10 @@ MEDIA_ROOT = 'Media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Frontend - crispy  form
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# crispy
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+PROJECT_NAME = 'Hospital Management System'
